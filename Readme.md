@@ -1,9 +1,9 @@
-# 🌾 Proyecto Rural - Animales y Producción 🌾
+#  Proyecto Rural - Animales y Producción 
 
 Este proyecto web permite gestionar animales rurales y calcular la producción de leche, ingresos y ganancia neta.  
 Diseñado con **colores llamativos y poco comunes** para destacar en cualquier entorno.
 
-## 🚀 Funcionalidades
+##  Funcionalidades
 - Sección principal con animales clave: vacas, caballos, cerdos, gallinas.
 - Sección secundaria con otros animales comunes: ovejas, patos, cabras, pavos, conejos.
 - Calculadora ganadera para producción total, ingresos y ganancia.
