@@ -9,13 +9,13 @@ Diseñado con **colores llamativos y poco comunes** para destacar en cualquier e
 - Calculadora ganadera para producción total, ingresos y ganancia.
 - Estética única con colores vibrantes y raros.
 
-## 📂 Estructura
+##  Estructura
 - `index.html`: Página principal.
 - `style.css`: Estilos visuales llamativos.
 - `script.js`: Lógica de cálculos.
 - `README.md`: Documentación.
 
-## 🛠️ Instalación y uso
+##  Instalación y uso
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/usuario/proyecto_rural_animales.git
