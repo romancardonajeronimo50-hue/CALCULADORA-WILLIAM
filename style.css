@@ -1,0 +1,78 @@
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    margin: 40px;
+    background: linear-gradient(135deg, #ff00cc, #333399);
+    color: #fdfdfd;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    background: -webkit-linear-gradient(#ffcc00, #ff0066);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00ffcc;
+    width: 500px;
+    backdrop-filter: blur(6px);
+}
+
+h2 {
+    color: #00ffcc;
+    text-shadow: 2px 2px #ff0066;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    font-size: 20px;
+    margin: 8px 0;
+    color: #ffcc00;
+    text-shadow: 1px 1px #000;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #ff0066;
+    border-radius: 6px;
+    background: #222;
+    color: #fff;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px;
+    background: linear-gradient(90deg, #00ffcc, #ff0066);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #ffcc00, #00ffcc);
+}
+
+#resultados {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 255, 204, 0.2);
+    border-radius: 8px;
+    color: #ffcc00;
+    font-size: 18px;
+    text-shadow: 1px 1px #000;
+}
