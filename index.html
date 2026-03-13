@@ -8,41 +8,40 @@
 <body>
     <h1>🌾 Gestión Rural de Animales 🌾</h1>
 
-    <!-- Sección principal -->
-    <section id="animales-principales">
-        <h2>Animales principales</h2>
-        <ul>
-            <li>🐄 Vacas</li>
-            <li>🐎 Caballos</li>
-            <li>🐖 Cerdos</li>
-            <li>🐓 Gallinas</li>
-        </ul>
-    </section>
-
-    <!-- Sección secundaria -->
-    <section id="otros-animales">
-        <h2>Otros animales comunes</h2>
-        <ul>
-            <li>🐑 Ovejas</li>
-            <li>🦆 Patos</li>
-            <li>🐐 Cabras</li>
-            <li>🦃 Pavos</li>
-            <li>🐇 Conejos</li>
-        </ul>
+    <!-- Sección de selección de animal -->
+    <section id="seleccion-animal">
+        <h2>Seleccione el animal</h2>
+        <form id="formAnimal">
+            <label for="animal">Animal:</label>
+            <select id="animal" required>
+                <option value="">-- Elija uno --</option>
+                <option value="vaca">🐄 Vaca</option>
+                <option value="gallina">🐓 Gallina</option>
+                <option value="cerdo">🐖 Cerdo</option>
+                <option value="oveja">🐑 Oveja</option>
+                <option value="cabra">🐐 Cabra</option>
+                <option value="pato">🦆 Pato</option>
+                <option value="pavo">🦃 Pavo</option>
+                <option value="conejo">🐇 Conejo</option>
+                <option value="caballo">🐎 Caballo</option>
+            </select>
+            <button type="submit">Seleccionar</button>
+        </form>
+        <div id="animalSeleccionado"></div>
     </section>
 
     <!-- Calculadora -->
     <section id="calculos">
         <h2>Calculadora Ganadera</h2>
         <form id="formGanadero">
-            <label>Número de vacas:</label>
-            <input type="number" id="numVacas" required><br>
+            <label id="labelCantidad">Número de animales:</label>
+            <input type="number" id="numAnimales" required><br>
 
-            <label>Litros por vaca:</label>
-            <input type="number" id="litrosPorVaca" step="0.01" required><br>
+            <label id="labelProduccion">Producción por animal:</label>
+            <input type="number" id="produccionPorAnimal" step="0.01" required><br>
 
-            <label>Precio por litro:</label>
-            <input type="number" id="precioPorLitro" step="0.01" required><br>
+            <label id="labelPrecio">Precio por unidad:</label>
+            <input type="number" id="precioPorUnidad" step="0.01" required><br>
 
             <label>Gastos diarios:</label>
             <input type="number" id="gastosDiarios" step="0.01" required><br>
