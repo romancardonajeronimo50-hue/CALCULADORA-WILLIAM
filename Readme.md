@@ -5,10 +5,9 @@ Funcionalidades
 Incluí una sección inicial donde el usuario puede seleccionar el animal que desea gestionar. A partir de esa elección, el sistema ajusta dinámicamente las etiquetas, unidades y cálculos de producción. La calculadora ganadera permite ingresar el número de animales, la producción por unidad, el precio por unidad y los gastos diarios, generando resultados precisos y personalizados. El diseño visual se apoya en una imagen de fondo con animales reales, secciones translúcidas con desenfoque suave, botones animados y una estructura responsiva que se adapta a dispositivos móviles.
 
 Estructura
-index.html: Contiene la estructura principal de la página, incluyendo la selección de animal y la calculadora.
-
+indexhtml: Contiene la estructura principal de la página, incluyendo la selección de animal y la calculadora.
 style.css: Define los estilos visuales, el fondo con imagen de animales, el diseño responsivo y los efectos visuales.
-
 script.js: Controla la lógica dinámica de la calculadora, adaptando los campos según el animal seleccionado.
-
 README.md: Documentación del proyecto y descripción de las funcionalidades implementadas.
+README.md: Documentación del proyecto y descripción de las funcionalidades implementadas.
+
