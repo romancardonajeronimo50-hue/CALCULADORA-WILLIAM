@@ -11,3 +11,56 @@ script.js: Controla la lógica dinámica de la calculadora, adaptando los campos
 README.md: Documentación del proyecto y descripción de las funcionalidades implementadas.
 README.md: Documentación del proyecto y descripción de las funcionalidades implementadas.
 
+
+Proyecto Rural – Animales y Producción
+
+Descripción
+El Proyecto Rural es una aplicación web pensada para simplificar la gestión de animales de granja y optimizar el cálculo de producción diaria, ingresos y ganancias netas.
+La interfaz fue rediseñada con un enfoque moderno y profesional, incorporando un fondo realista con animales en su entorno natural y secciones translúcidas con desenfoque suave que aportan claridad y estética.
+
+Funcionalidades
+Selección inicial del tipo de animal (vacas, gallinas, cerdos, etc.).
+
+Adaptación automática de etiquetas y unidades de producción según el animal elegido (litros, huevos, kilos).
+
+Calculadora inteligente que permite ingresar:
+
+Número de animales
+
+Producción por unidad
+
+Precio por unidad
+
+Gastos diarios
+
+Generación de resultados precisos y personalizados en un párrafo estadístico estilizado, resaltando la eficiencia productiva.
+
+Diseño visual
+Fondo con animales reales para mayor inmersión.
+
+Secciones translúcidas con blur suave.
+
+Botones animados con efectos de interacción.
+
+Diseño responsivo, adaptado a móviles, tablets y pantallas grandes.
+
+Estructura del proyecto
+index.html → estructura principal de la página.
+
+style.css → estilos visuales, márgenes optimizadas, degradados y responsividad.
+
+script.js → lógica dinámica de la calculadora, ajustando campos según el animal seleccionado.
+
+README.md → documentación del proyecto y descripción de funcionalidades.
+
+Beneficios
+Ahorro de tiempo en cálculos manuales.
+
+Presentación clara y atractiva de resultados.
+
+Herramienta útil para productores, estudiantes y emprendedores rurales.
+
+Base sólida para futuras ampliaciones (estadísticas avanzadas, gráficos comparativos, exportación de datos).
+
+“La producción total estimada es de 350 litros diarios, con una ganancia neta aproximada de $1,200. Este resultado refleja la eficiencia del sistema productivo y sirve como referencia para la planificación económica.”
+
