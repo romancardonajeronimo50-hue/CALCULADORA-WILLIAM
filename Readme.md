@@ -11,14 +11,12 @@ script.js: Controla la lógica dinámica de la calculadora, adaptando los campos
 README.md: Documentación del proyecto y descripción de las funcionalidades implementadas.
 README.md: Documentación del proyecto y descripción de las funcionalidades implementadas.
 
-
 Proyecto Rural – Animales y Producción
+ Descripción
+El Proyecto Rural es una aplicación web diseñada para facilitar la gestión de animales de granja y optimizar el cálculo de producción diaria, ingresos y ganancias netas.
+La interfaz combina un diseño profesional con un fondo realista de animales en su entorno natural, secciones translúcidas con desenfoque suave y botones animados que hacen la experiencia más atractiva.
 
-Descripción
-El Proyecto Rural es una aplicación web pensada para simplificar la gestión de animales de granja y optimizar el cálculo de producción diaria, ingresos y ganancias netas.
-La interfaz fue rediseñada con un enfoque moderno y profesional, incorporando un fondo realista con animales en su entorno natural y secciones translúcidas con desenfoque suave que aportan claridad y estética.
-
-Funcionalidades
+ Funcionalidades
 Selección inicial del tipo de animal (vacas, gallinas, cerdos, etc.).
 
 Adaptación automática de etiquetas y unidades de producción según el animal elegido (litros, huevos, kilos).
@@ -35,32 +33,35 @@ Gastos diarios
 
 Generación de resultados precisos y personalizados en un párrafo estadístico estilizado, resaltando la eficiencia productiva.
 
-Diseño visual
+ Diseño visual
 Fondo con animales reales para mayor inmersión.
 
 Secciones translúcidas con blur suave.
 
 Botones animados con efectos de interacción.
 
-Diseño responsivo, adaptado a móviles, tablets y pantallas grandes.
+Diseño responsivo: la aplicación se adapta automáticamente a cualquier dispositivo, ya sea PC, tablet o móvil, manteniendo siempre una experiencia clara y ordenada.
 
-Estructura del proyecto
+ Estructura del proyecto
 index.html → estructura principal de la página.
 
-style.css → estilos visuales, márgenes optimizadas, degradados y responsividad.
+style.css → estilos visuales, márgenes optimizadas, degradados y diseño responsivo.
 
 script.js → lógica dinámica de la calculadora, ajustando campos según el animal seleccionado.
 
 README.md → documentación del proyecto y descripción de funcionalidades.
 
-Beneficios
+ Beneficios
 Ahorro de tiempo en cálculos manuales.
 
 Presentación clara y atractiva de resultados.
 
 Herramienta útil para productores, estudiantes y emprendedores rurales.
 
+Adaptación automática a cualquier pantalla o dispositivo.
+
 Base sólida para futuras ampliaciones (estadísticas avanzadas, gráficos comparativos, exportación de datos).
+
 
 “La producción total estimada es de 350 litros diarios, con una ganancia neta aproximada de $1,200. Este resultado refleja la eficiencia del sistema productivo y sirve como referencia para la planificación económica.”
 
