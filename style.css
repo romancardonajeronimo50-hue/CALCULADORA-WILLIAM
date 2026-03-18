@@ -1,39 +1,41 @@
 /* Fondo general con imagen de animales */
 body {
     font-family: 'Trebuchet MS', sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0;                 
+    padding: 40px;             /* espacio interno simétrico en los 4 lados */
     background: url('https://copilot.microsoft.com/th/id/BCO.a1e0d4f0-cb41-415f-9177-e983c7ee7d1b.png') no-repeat center center fixed;
     background-size: cover;
     color: #2e2e2e;
+    box-sizing: border-box;    
 }
 
 /* Encabezado principal */
 h1 {
     text-align: center;
-    font-size: 2.8em;
-    margin: 30px 20px;
-    background: -webkit-linear-gradient(#4caf50, #2e7d32);
+    font-size: clamp(1.8em, 4vw, 2.8em); /* tipografía adaptativa */
+    margin: 20px auto;         
+    background: -webkit-linear-gradient(#fdd835, #fbc02d); /* degradado amarillo */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Secciones con efecto translúcido y desenfoque */
+/* Secciones con efecto translúcido y simetría */
 section {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(6px);
     padding: 25px;
-    margin: 20px auto;
+    margin: 40px auto;         
     border-radius: 16px;
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
-    width: 90%;
+    box-shadow: 0 4px 25px rgba(76, 175, 80, 0.4);
+    width: 85%;
     max-width: 600px;
+    text-align: center;
 }
 
 /* Títulos de sección */
 h2 {
     color: #2e7d32;
-    font-size: 1.6em;
+    font-size: clamp(1.2em, 3vw, 1.6em);
     margin-bottom: 15px;
     text-shadow: 1px 1px #a5d6a7;
 }
@@ -43,6 +45,7 @@ label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    text-align: left;
 }
 
 input, select {
@@ -86,18 +89,39 @@ button:hover {
     text-shadow: 1px 1px #fff;
 }
 
-/* Responsive para móviles */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2em;
+/* Responsive para pantallas medianas */
+@media (max-width: 1024px) {
+    body {
+        padding: 30px;
     }
+    section {
+        width: 90%;
+    }
+}
 
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    section {
+        padding: 20px;
+        margin: 20px auto;
+        width: 95%;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
     section {
         padding: 15px;
-        margin: 15px;
+        margin: 15px auto;
+        width: 100%;
     }
-
     input, select, button {
-        font-size: 0.95em;
+        font-size: 0.9em;
     }
 }
