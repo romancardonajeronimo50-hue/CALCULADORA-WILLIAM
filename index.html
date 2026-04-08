@@ -2,153 +2,166 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Proyecto Rural - Animales y Producción</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Rural de Animales</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Librería Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>🌾 Gestión Rural de Animales 🌾</h1>
+    <div class="page-shell">
+        <header class="hero">
+            <div class="hero__content">
+                <p class="eyebrow">Panel rural de control</p>
+                <h1>Gestion profesional de animales, produccion y rentabilidad</h1>
+                <p class="hero__lead">
+                    Calcula la produccion diaria, visualiza ingresos con mas claridad y consulta un glosario ordenado
+                    con definiciones completas para trabajo rural.
+                </p>
+                <div class="hero__stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat__value">9</span>
+                        <span class="hero-stat__label">animales incluidos</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat__value">40+</span>
+                        <span class="hero-stat__label">conceptos ganaderos</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat__value">1</span>
+                        <span class="hero-stat__label">flujo claro de trabajo</span>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-    <!-- Sección de selección de animal -->
-    <section id="seleccion-animal">
-        <h2>Seleccione el animal</h2>
-        <form id="formAnimal">
-            <label for="animal">Animal:</label>
-            <select id="animal" required>
-                <option value="">-- Elija uno --</option>
-                <option value="vaca">🐄 Vaca</option>
-                <option value="gallina">🐓 Gallina</option>
-                <option value="cerdo">🐖 Cerdo</option>
-                <option value="oveja">🐑 Oveja</option>
-                <option value="cabra">🐐 Cabra</option>
-                <option value="pato">🦆 Pato</option>
-                <option value="pavo">🦃 Pavo</option>
-                <option value="conejo">🐇 Conejo</option>
-                <option value="caballo">🐎 Caballo</option>
-            </select>
-            <button type="submit">Seleccionar</button>
-        </form>
-        <div id="animalSeleccionado"></div>
-    </section>
+        <main class="workspace-grid">
+            <section id="seleccion-animal" class="panel panel--selector">
+                <div class="panel__heading">
+                    <p class="eyebrow">Paso 1</p>
+                    <h2>Seleccione el animal</h2>
+                    <p>Elija la especie y prepare la calculadora con la unidad correcta.</p>
+                </div>
 
-    <!-- Calculadora -->
-    <section id="calculos">
-        <h2>Calculadora Ganadera</h2>
-        <form id="formGanadero">
-            <label id="labelCantidad">Número de animales:</label>
-            <input type="number" id="numAnimales" required><br>
+                <form id="formAnimal" class="stack-form">
+                    <label for="animal">Animal</label>
+                    <select id="animal" required>
+                        <option value="">Seleccione una opcion</option>
+                    </select>
+                    <button type="submit" class="button button--primary">Aplicar seleccion</button>
+                    <p class="selection-note">La seleccion se aplica al instante y limpia el calculo anterior cuando cambia de animal para no mezclar unidades.</p>
+                </form>
 
-            <label id="labelProduccion">Producción por animal:</label>
-            <input type="number" id="produccionPorAnimal" step="0.01" required><br>
+                <div id="animalSeleccionado" class="animal-highlight animal-highlight--empty" aria-live="polite">
+                    Seleccione un animal para ver su enfoque productivo, su unidad de calculo y sus puntos clave.
+                </div>
+            </section>
 
-            <label id="labelPrecio">Precio por unidad:</label>
-            <input type="number" id="precioPorUnidad" step="0.01" required><br>
+            <section id="calculos" class="panel panel--calculator">
+                <div class="panel__heading">
+                    <p class="eyebrow">Paso 2</p>
+                    <h2>Calculadora ganadera</h2>
+                    <p>Ingrese la informacion base y obtenga una lectura mas util del rendimiento diario.</p>
+                </div>
 
-            <label>Gastos diarios:</label>
-            <input type="number" id="gastosDiarios" step="0.01" required><br>
+                <div id="animalFormContext" class="animal-form-context animal-form-context--empty">
+                    La calculadora adaptara sus campos cuando seleccione un animal.
+                </div>
 
-            <button type="submit">Calcular</button>
-        </form>
+                <form id="formGanadero" class="stack-form">
+                    <div class="field-grid">
+                        <div class="field-group">
+                            <label id="labelCantidad" for="numAnimales">Numero de animales</label>
+                            <input type="number" id="numAnimales" min="1" step="1" required>
+                            <p id="hintCantidad" class="field-hint">Ingrese la cantidad total del lote que desea evaluar.</p>
+                        </div>
 
-        <div id="resultados"></div>
-        <!-- Gráfica -->
-        <canvas id="graficaResultados" width="400" height="200"></canvas>
-    </section>
+                        <div class="field-group">
+                            <label id="labelProduccion" for="produccionPorAnimal">Produccion por animal</label>
+                            <input type="number" id="produccionPorAnimal" min="0" step="0.01" required>
+                            <p id="hintProduccion" class="field-hint">La produccion se ajustara segun el animal seleccionado.</p>
+                        </div>
 
-    <script>
-        // Diccionario de unidades según el animal
-        const unidadesPorAnimal = {
-            vaca: "litros de leche",
-            gallina: "huevos",
-            cerdo: "kilos de carne",
-            oveja: "litros de leche",
-            cabra: "litros de leche",
-            pato: "huevos",
-            pavo: "huevos",
-            conejo: "kilos de carne",
-            caballo: "litros de leche"
-        };
+                        <div class="field-group">
+                            <label id="labelPrecio" for="precioPorUnidad">Precio por unidad</label>
+                            <input type="number" id="precioPorUnidad" min="0" step="0.01" required>
+                            <p id="hintPrecio" class="field-hint">Ingrese el valor comercial de cada unidad producida.</p>
+                        </div>
 
-        let animalSeleccionado = "";
+                        <div class="field-group">
+                            <label id="labelGastos" for="gastosDiarios">Gastos diarios</label>
+                            <input type="number" id="gastosDiarios" min="0" step="0.01" required>
+                            <p id="hintGastos" class="field-hint">Incluya alimentacion, manejo y costos directos del dia.</p>
+                        </div>
+                    </div>
 
-        // Selección de animal
-        document.getElementById("formAnimal").addEventListener("submit", function(e) {
-            e.preventDefault();
-            animalSeleccionado = document.getElementById("animal").value;
-            const animalDiv = document.getElementById("animalSeleccionado");
+                    <button type="submit" class="button button--primary">Calcular resultados</button>
+                </form>
+            </section>
 
-            if (animalSeleccionado) {
-                const unidad = unidadesPorAnimal[animalSeleccionado];
-                animalDiv.innerHTML = `<h3>Has seleccionado: ${animalSeleccionado} 🐾</h3>
-                                       <p>La producción se medirá en <strong>${unidad}</strong>.</p>`;
+            <section class="panel panel--results">
+                <div class="panel__heading">
+                    <p class="eyebrow">Paso 3</p>
+                    <h2>Resultados y lectura visual</h2>
+                    <p>Revise produccion, ingresos, ganancia y rendimiento en un solo bloque ordenado.</p>
+                </div>
 
-                // Cambiar etiquetas dinámicamente
-                document.getElementById("labelProduccion").textContent = `Producción por ${animalSeleccionado} (${unidad}):`;
-                document.getElementById("labelPrecio").textContent = `Precio por ${unidad}:`;
-            }
-        });
+                <div id="resultados" class="result-state" aria-live="polite">
+                    Ejecute un calculo para mostrar el resumen economico y productivo del animal seleccionado.
+                </div>
 
-        // Calculadora Ganadera
-        document.getElementById("formGanadero").addEventListener("submit", function(e) {
-            e.preventDefault();
+                <div id="chartShell" class="chart-shell chart-shell--empty">
+                    <div id="chartPlaceholder" class="chart-placeholder" aria-hidden="true"></div>
+                    <canvas id="graficaResultados"></canvas>
+                </div>
+            </section>
+        </main>
 
-            const numAnimales = parseInt(document.getElementById("numAnimales").value);
-            const produccionPorAnimal = parseFloat(document.getElementById("produccionPorAnimal").value);
-            const precioPorUnidad = parseFloat(document.getElementById("precioPorUnidad").value);
-            const gastosDiarios = parseFloat(document.getElementById("gastosDiarios").value);
+        <section class="glossary-launch">
+            <p class="eyebrow">Consulta tecnica</p>
+            <h2>Acceda al glosario completo</h2>
+            <p>
+                El boton se diseno con una jerarquia alta para que el glosario tenga un acceso directo, visible y central.
+            </p>
+            <button type="button" id="glossaryToggle" class="glossary-cta" aria-expanded="false" aria-controls="glosario">
+                GLOSARIO
+            </button>
+            <p class="glossary-launch__caption">Presione el boton para desplegar el glosario ganadero completo.</p>
+        </section>
 
-            const produccionTotal = numAnimales * produccionPorAnimal;
-            const ingresos = produccionTotal * precioPorUnidad;
-            const ganancia = ingresos - gastosDiarios;
+        <section id="glosario" class="panel panel--glossary is-collapsed" hidden>
+            <div class="panel__heading panel__heading--wide">
+                <p class="eyebrow">Glosario ganadero</p>
+                <h2>Glosario completo de ganaderia, produccion, manejo, sanidad, instalaciones y economia</h2>
+                <p>
+                    Consulte un glosario organizado por bloques tecnicos. Puede buscar, filtrar y revisar conceptos
+                    clave de animales, nutricion, reproduccion, manejo, sanidad, instalaciones y economia ganadera.
+                </p>
+            </div>
 
-            const unidad = unidadesPorAnimal[animalSeleccionado] || "unidades";
+            <div id="glossaryOverview" class="glossary-overview"></div>
 
-            // Estadísticas adicionales
-            const promedioProduccion = produccionTotal / numAnimales;
-            const rentabilidad = (ganancia / ingresos) * 100;
+            <div class="glossary-toolbar">
+                <label class="search-field" for="glossarySearch">
+                    <span>Buscar termino o animal</span>
+                    <input type="search" id="glossarySearch" placeholder="Ejemplo: vaca, ensilaje, bioseguridad, punto de equilibrio">
+                </label>
 
-            // Resultados en texto
-            const resultadosDiv = document.getElementById("resultados");
-            resultadosDiv.innerHTML = `
-                <h3>✨ Resultados ✨</h3>
-                <p>Producción total: <strong>${produccionTotal.toFixed(2)} ${unidad}</strong></p>
-                <p>Ingresos: <strong>$${ingresos.toFixed(2)}</strong></p>
-                <p>Ganancia neta: <strong>$${ganancia.toFixed(2)}</strong></p>
-                <hr>
-                <p>Promedio por ${animalSeleccionado}: <strong>${promedioProduccion.toFixed(2)} ${unidad}</strong></p>
-                <p>Rentabilidad: <strong>${rentabilidad.toFixed(2)}%</strong></p>
-            `;
+                <div class="filter-group" aria-label="Filtros del glosario">
+                    <button type="button" class="filter-chip is-active" data-filter="todos">Todos</button>
+                    <button type="button" class="filter-chip" data-filter="animales">Animales</button>
+                    <button type="button" class="filter-chip" data-filter="nutricion">Nutricion</button>
+                    <button type="button" class="filter-chip" data-filter="manejo">Manejo</button>
+                    <button type="button" class="filter-chip" data-filter="sanidad">Sanidad</button>
+                    <button type="button" class="filter-chip" data-filter="reproduccion">Reproduccion</button>
+                    <button type="button" class="filter-chip" data-filter="instalaciones">Instalaciones</button>
+                    <button type="button" class="filter-chip" data-filter="economia">Economia</button>
+                </div>
+            </div>
 
-            // Gráfica con Chart.js
-            const ctx = document.getElementById("graficaResultados").getContext("2d");
-            new Chart(ctx, {
-                type: "bar",
-                data: {
-                    labels: ["Producción", "Ingresos", "Ganancia"],
-                    datasets: [{
-                        label: "Estadísticas Ganaderas",
-                        data: [produccionTotal, ingresos, ganancia],
-                        backgroundColor: ["#66bb6a", "#42a5f5", "#ff7043"]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { display: false },
-                        title: { display: true, text: "Resultados en Gráfica" }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0
-                            }
-                        }
-                    }
-                }
-            });
-        });
-    </script>
+            <div id="glossarySummary" class="glossary-summary" aria-live="polite"></div>
+            <div id="glossaryGrid" class="glossary-grid"></div>
+        </section>
+    </div>
 </body>
 </html>
